@@ -144,7 +144,7 @@ export default function LocationDetails({ form, onPrevious }: LocationDetailsPro
                   <FormLabel className="text-gray-700">Contact Number <span className="text-red-500">*</span></FormLabel>
                   <div className="flex gap-2">
                     <Select 
-                      onValueChange={(value) => field.onChange(`${value}${field.value??.toString().replace(/^\+\d+/, '')}`)}
+                      onValueChange={(value) => field.onChange(`${value}${field.value?.toString().replace(/^\+\d+/, '')}`)}
                       defaultValue="+1"
                     >
                       <FormControl>
