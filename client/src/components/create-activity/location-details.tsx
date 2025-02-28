@@ -45,7 +45,7 @@ export default function LocationDetails({ form, onPrevious }: LocationDetailsPro
       <div className="space-y-6">
         <FormField
           control={form.control}
-          name="addressLine1"
+          name="address_line_1"
           render={({ field }) => (
             <FormItem>
               <FormLabel className="text-gray-700">Address Line 1 <span className="text-red-500">*</span></FormLabel>
@@ -59,7 +59,7 @@ export default function LocationDetails({ form, onPrevious }: LocationDetailsPro
 
         <FormField
           control={form.control}
-          name="addressLine2"
+          name="address_line_2"
           render={({ field: { value, onChange, ...field } }) => (
             <FormItem>
               <FormLabel className="text-gray-700">Address Line 2</FormLabel>
@@ -79,7 +79,7 @@ export default function LocationDetails({ form, onPrevious }: LocationDetailsPro
 
         <FormField
           control={form.control}
-          name="zipCode"
+          name="zip_code"
           render={({ field }) => (
             <FormItem>
               <FormLabel className="text-gray-700">ZIP Code <span className="text-red-500">*</span></FormLabel>
@@ -138,7 +138,7 @@ export default function LocationDetails({ form, onPrevious }: LocationDetailsPro
           <div className="grid grid-cols-2 gap-4">
             <FormField
               control={form.control}
-              name="contactNumber"
+              name="contact_number"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="text-gray-700">Contact Number <span className="text-red-500">*</span></FormLabel>
@@ -169,7 +169,7 @@ export default function LocationDetails({ form, onPrevious }: LocationDetailsPro
 
             <FormField
               control={form.control}
-              name="contactName"
+              name="contact_name"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="text-gray-700">Contact Name <span className="text-red-500">*</span></FormLabel>

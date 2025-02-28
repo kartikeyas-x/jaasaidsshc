@@ -68,17 +68,17 @@ export default function CreateActivity() {
         name: '',
         category: undefined,
         description: '',
-        activityType: undefined,
-        locationType: undefined,
-        minMembers: undefined,
-        maxMembers: undefined,
-        addressLine1: '',
-        addressLine2: '',
-        zipCode: '',
+        activity_type: undefined,
+        location_type: undefined,
+        min_members: undefined,
+        max_members: undefined,
+        address_line_1: '',
+        address_line_2: '',
+        zip_code: '',
         city: '',
         state: '',
-        contactNumber: '',
-        contactName: ''
+        contact_number: '',
+        contact_name: ''
       });
       setStep(1);
     } catch (error) {

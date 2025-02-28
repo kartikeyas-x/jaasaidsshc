@@ -105,7 +105,7 @@
 
 // //         <FormField
 // //           control={form.control}
-// //           name="activityType"
+// //           name="activity_type"
 // //           render={({ field }) => (
 // //             <FormItem>
 // //               <FormLabel className="text-gray-700">Please select the activity type <span className="text-red-500">*</span></FormLabel>
@@ -142,7 +142,7 @@
 
 // //         <FormField
 // //           control={form.control}
-// //           name="locationType"
+// //           name="location_type"
 // //           render={({ field }) => (
 // //             <FormItem>
 // //               <FormLabel className="text-gray-700">Please select the type of location <span className="text-red-500">*</span></FormLabel>
@@ -181,7 +181,7 @@
 // //           <div className="grid grid-cols-2 gap-4">
 // //             <FormField
 // //               control={form.control}
-// //               name="minMembers"
+// //               name="min_members"
 // //               render={({ field: { value, onChange, ...field }}) => (
 // //                 <FormItem>
 // //                   <FormLabel className="text-gray-700">Minimum Members</FormLabel>
@@ -200,7 +200,7 @@
 // //             />
 // //             <FormField
 // //               control={form.control}
-// //               name="maxMembers"
+// //               name="max_members"
 // //               render={({ field: { value, onChange, ...field }}) => (
 // //                 <FormItem>
 // //                   <FormLabel className="text-gray-700">Maximum Members</FormLabel>
@@ -362,7 +362,7 @@
 
 //         <FormField
 //           control={form.control}
-//           name="activityType"
+//           name="activity_type"
 //           render={({ field }) => (
 //             <FormItem>
 //               <FormLabel className="text-gray-700">Please select the activity type <span className="text-red-500">*</span></FormLabel>
@@ -399,7 +399,7 @@
 
 //         <FormField
 //           control={form.control}
-//           name="locationType"
+//           name="location_type"
 //           render={({ field }) => (
 //             <FormItem>
 //               <FormLabel className="text-gray-700">Please select the type of location <span className="text-red-500">*</span></FormLabel>
@@ -438,7 +438,7 @@
 //           <div className="grid grid-cols-2 gap-4">
 //             <FormField
 //               control={form.control}
-//               name="minMembers"
+//               name="min_members"
 //               render={({ field: { value, onChange, ...field }}) => (
 //                 <FormItem>
 //                   <FormLabel className="text-gray-700">Minimum Members</FormLabel>
@@ -457,7 +457,7 @@
 //             />
 //             <FormField
 //               control={form.control}
-//               name="maxMembers"
+//               name="max_members"
 //               render={({ field: { value, onChange, ...field }}) => (
 //                 <FormItem>
 //                   <FormLabel className="text-gray-700">Maximum Members</FormLabel>
@@ -615,7 +615,7 @@ export default function ActivityDetails({ form, onNext }: ActivityDetailsProps) 
 
         <FormField
           control={form.control}
-          name="activity_type" // Changed from activityType to match backend schema
+          name="activity_type" // Changed from activity_type to match backend schema
           render={({ field }) => (
             <FormItem>
               <FormLabel className="text-gray-700">Please select the activity type <span className="text-red-500">*</span></FormLabel>
@@ -645,7 +645,7 @@ export default function ActivityDetails({ form, onNext }: ActivityDetailsProps) 
 
         <FormField
           control={form.control}
-          name="locationType"
+          name="location_type"
           render={({ field }) => (
             <FormItem>
               <FormLabel className="text-gray-700">Please select the type of location <span className="text-red-500">*</span></FormLabel>
@@ -681,7 +681,7 @@ export default function ActivityDetails({ form, onNext }: ActivityDetailsProps) 
           <div className="grid grid-cols-2 gap-4">
             <FormField
               control={form.control}
-              name="minMembers"
+              name="min_members"
               render={({ field: { value, onChange, ...field }}) => (
                 <FormItem>
                   <FormLabel className="text-gray-700">Minimum Members</FormLabel>
@@ -700,7 +700,7 @@ export default function ActivityDetails({ form, onNext }: ActivityDetailsProps) 
             />
             <FormField
               control={form.control}
-              name="maxMembers"
+              name="max_members"
               render={({ field: { value, onChange, ...field }}) => (
                 <FormItem>
                   <FormLabel className="text-gray-700">Maximum Members</FormLabel>
