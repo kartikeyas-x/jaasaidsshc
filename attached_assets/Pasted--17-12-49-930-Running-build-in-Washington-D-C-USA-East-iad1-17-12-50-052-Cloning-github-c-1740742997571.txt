@@ -1,0 +1,66 @@
+[17:12:49.930] Running build in Washington, D.C., USA (East) – iad1
+[17:12:50.052] Cloning github.com/kartikeyas-x/jaasaidsshc (Branch: master, Commit: f4d105f)
+[17:12:50.318] Cloning completed: 265.000ms
+[17:12:52.707] Restored build cache from previous deployment (2myZPZUYWStf8RTfmYcXmeypctJw)
+[17:12:52.784] Running "vercel build"
+[17:12:53.176] Vercel CLI 41.2.2
+[17:12:53.966] Running "install" command: `npm install`...
+[17:12:56.445] 
+[17:12:56.445] up to date, audited 598 packages in 2s
+[17:12:56.445] 
+[17:12:56.445] 74 packages are looking for funding
+[17:12:56.445]   run `npm fund` for details
+[17:12:56.476] 
+[17:12:56.476] 10 vulnerabilities (8 moderate, 2 high)
+[17:12:56.477] 
+[17:12:56.477] To address issues that do not require attention, run:
+[17:12:56.477]   npm audit fix
+[17:12:56.477] 
+[17:12:56.477] To address all issues (including breaking changes), run:
+[17:12:56.477]   npm audit fix --force
+[17:12:56.477] 
+[17:12:56.477] Run `npm audit` for details.
+[17:12:56.739] 
+[17:12:56.739] > rest-express@1.0.0 build
+[17:12:56.740] > vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=cjs --outdir=dist
+[17:12:56.740] 
+[17:12:57.199] [36mvite v5.4.14 [32mbuilding for production...[36m[39m
+[17:12:57.256] transforming...
+[17:13:03.476] [32m✓[39m 2165 modules transformed.
+[17:13:03.890] rendering chunks...
+[17:13:03.901] computing gzip size...
+[17:13:03.932] [2m../dist/public/[22m[32mindex.html                 [39m[1m[2m  1.60 kB[22m[1m[22m[2m │ gzip:   0.63 kB[22m
+[17:13:03.933] [2m../dist/public/[22m[2massets/[22m[35mindex-CECowN2h.css  [39m[1m[2m 58.00 kB[22m[1m[22m[2m │ gzip:  10.14 kB[22m
+[17:13:03.937] [2m../dist/public/[22m[2massets/[22m[36mindex-BuSNb8PN.js   [39m[1m[33m562.29 kB[39m[22m[2m │ gzip: 176.54 kB[22m
+[17:13:03.937] [32m✓ built in 6.70s[39m
+[17:13:03.937] [33m
+[17:13:03.937] (!) Some chunks are larger than 500 kB after minification. Consider:
+[17:13:03.937] - Using dynamic import() to code-split the application
+[17:13:03.937] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[17:13:03.937] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
+[17:13:03.968] ▲ [WARNING] "import.meta" is not available with the "cjs" output format and will be empty [empty-import-meta]
+[17:13:03.969] 
+[17:13:03.969]     server/vite.ts:6:33:
+[17:13:03.969]       6 │ const __filename = fileURLToPath(import.meta.url);
+[17:13:03.969]         ╵                                  ~~~~~~~~~~~
+[17:13:03.969] 
+[17:13:03.969]   You need to set the output format to "esm" for "import.meta" to work correctly.
+[17:13:03.969] 
+[17:13:03.970] ▲ [WARNING] "import.meta" is not available with the "cjs" output format and will be empty [empty-import-meta]
+[17:13:03.970] 
+[17:13:03.970]     vite.config.ts:8:33:
+[17:13:03.970]       8 │ const __filename = fileURLToPath(import.meta.url);
+[17:13:03.970]         ╵                                  ~~~~~~~~~~~
+[17:13:03.970] 
+[17:13:03.970]   You need to set the output format to "esm" for "import.meta" to work correctly.
+[17:13:03.970] 
+[17:13:03.971] ✘ [ERROR] Expected ")" but found ";"
+[17:13:03.971] 
+[17:13:03.971]     server/storage.ts:19:8:
+[17:13:03.971]       19 │       `);
+[17:13:03.971]          │         ^
+[17:13:03.971]          ╵         )
+[17:13:03.971] 
+[17:13:03.972] 2 warnings and 1 error
+[17:13:03.984] Error: Command "npm run build" exited with 1
+[17:13:04.253] 
