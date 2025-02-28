@@ -1,7 +1,8 @@
 
-// Import database instance directly instead of a function
+// Import database instance and activities schema
 import { db } from "../db.js";
-import { insertActivitySchema } from "../shared/schema.js";
+import { activities } from "../shared/schema.js";
+import { eq } from "drizzle-orm";
 
 export default async function handler(req, res) {
   // Set CORS headers
@@ -22,34 +23,26 @@ export default async function handler(req, res) {
       
       console.log("Attempting to create activity:", JSON.stringify(activityData));
       
-      // Insert into database using the imported db instance
-      const result = await db.query(`
-        INSERT INTO activities (
-          name, category, description, activity_type, location_type, 
-          min_members, max_members, address_line_1, address_line_2, 
-          city, state, zip_code, contact_name, contact_number
-        ) VALUES (
-          $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14
-        ) RETURNING *
-      `, [
-        activityData.name,
-        activityData.category,
-        activityData.description,
-        activityData.activity_type,
-        activityData.location_type,
-        activityData.min_members || 1,
-        activityData.max_members || 10,
-        activityData.address_line_1,
-        activityData.address_line_2,
-        activityData.city,
-        activityData.state,
-        activityData.zip_code,
-        activityData.contact_name,
-        activityData.contact_number
-      ]);
+      // Insert into database using Drizzle ORM methods
+      const result = await db.insert(activities).values({
+        name: activityData.name,
+        category: activityData.category,
+        description: activityData.description,
+        activity_type: activityData.activity_type,
+        location_type: activityData.location_type,
+        min_members: activityData.min_members || 1,
+        max_members: activityData.max_members || 10,
+        address_line_1: activityData.address_line_1,
+        address_line_2: activityData.address_line_2,
+        city: activityData.city,
+        state: activityData.state,
+        zip_code: activityData.zip_code,
+        contact_name: activityData.contact_name,
+        contact_number: activityData.contact_number
+      }).returning();
       
       // Return the created activity
-      const createdActivity = result.rows[0];
+      const createdActivity = result[0];
       return res.status(201).json(createdActivity);
     } catch (error) {
       console.error("Error in POST /api/activities:", error);
@@ -61,9 +54,9 @@ export default async function handler(req, res) {
     }
   } else if (req.method === 'GET') {
     try {
-      // Get all activities
-      const result = await db.query('SELECT * FROM activities ORDER BY id DESC');
-      return res.json(result.rows);
+      // Get all activities using Drizzle ORM methods
+      const result = await db.select().from(activities).orderBy(activities.id);
+      return res.json(result);
     } catch (error) {
       console.error("Error in GET /api/activities:", error);
       return res.status(500).json({ error: "Error retrieving activities" });
