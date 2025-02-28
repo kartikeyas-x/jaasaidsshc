@@ -9,7 +9,7 @@ dotenv.config();
 // Create a database connection function
 const createDBConnection = () => {
   // Try to get from environment, otherwise use hardcoded fallback.  Added error handling.
-  const connectionString = process.env.DATABASE_URL;
+  let connectionString = process.env.DATABASE_URL;
   if (!connectionString) {
     console.warn("DATABASE_URL environment variable not set. Using fallback connection string.");
     connectionString = "postgresql://neondb_owner:npg_iswFG0ZaHIY5@ep-broad-mouse-a8asxfw4-pooler.eastus2.azure.neon.tech/neondb?sslmode=require";
