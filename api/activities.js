@@ -1,10 +1,7 @@
 
-// Import shared schema and database functions
+// Import database instance directly instead of a function
+import { db } from "../db.js";
 import { insertActivitySchema } from "../shared/schema.js";
-import { createNeonDatabase } from "../db.js";
-
-// Initialize database connection
-const db = createNeonDatabase();
 
 export default async function handler(req, res) {
   // Set CORS headers
@@ -25,7 +22,7 @@ export default async function handler(req, res) {
       
       console.log("Attempting to create activity:", JSON.stringify(activityData));
       
-      // Insert into database
+      // Insert into database using the imported db instance
       const result = await db.query(`
         INSERT INTO activities (
           name, category, description, activity_type, location_type, 
