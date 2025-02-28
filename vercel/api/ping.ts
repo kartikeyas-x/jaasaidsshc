@@ -1,11 +1,11 @@
-// Using Express-compatible types instead of Next.js
+
 import type { Request, Response } from "express";
 
 export default function handler(req: Request, res: Response) {
   res.status(200).json({
-    message: 'API is up and running',
+    message: "pong",
     timestamp: new Date().toISOString(),
-    version: '1.0.0',
-    environment: process.env.NODE_ENV
+    environment: process.env.NODE_ENV || 'development',
+    deployment: process.env.VERCEL ? 'vercel' : 'other'
   });
 }
