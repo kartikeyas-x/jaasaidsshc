@@ -1,48 +1,64 @@
+
 # Dependencies
-node_modules
+node_modules/
 .pnp
 .pnp.js
 
-# Testing
-coverage
+# Build outputs
+dist/
+build/
+server/public/
+.vercel/
 
-# Production
-dist
-build
-server/public
-
-# Development
-*.local
+# Environment variables
 .env
 .env.*
 !.env.example
 
+# Development
+*.local
+.cache/
+*.tsbuildinfo
+vite.config.ts.*
+.replit/
+.breakpoints
+replit.nix
+.config/
+
+# Logs and debugging
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Testing
+coverage/
+test-results/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
-.idea
-.DS_Store
+!.vscode/launch.json
+!.vscode/settings.json
+.idea/
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
-*.log
+.DS_Store
 
-# TypeScript
-*.tsbuildinfo
-vite.config.ts.*
+# Temporary files
+*.tmp
+*.temp
+*.bak
 *.tar.gz
-
-# Debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.pnpm-debug.log*
+*.zip
 
 # Replit specific
 .replit/
 .breakpoints
 replit.nix
 .config/
-.vercel
