@@ -7,10 +7,10 @@ class Storage {
   async healthCheck() {
     try {
       // Test basic connection
-      const result = await db.execute(db.sql`SELECT 1 as test`);
+      const result = await db.execute(db.query(`SELECT 1 as test`);
 
       // Check if activities table exists
-      const tableCheck = await db.execute(db.sql`
+      const tableCheck = await db.execute(db.query(`
         SELECT EXISTS (
           SELECT FROM information_schema.tables 
           WHERE table_schema = 'public' 
@@ -31,7 +31,7 @@ class Storage {
           activities: tableExists
         }
       };
-    } catch (error) {
+    } catch (error: unknown) {
       return { 
         status: "unhealthy", 
         message: "Database connection failed", 

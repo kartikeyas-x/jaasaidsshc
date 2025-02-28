@@ -24,7 +24,7 @@ export default function ActivityDetails({ form, onNext }: ActivityDetailsProps) 
   const { toast } = useToast();
 
   const validateStep = async () => {
-    const requiredFields = ["name", "category", "description", "activityType", "locationType"];
+    const requiredFields = ["name", "category", "description", "activity_type", "location_type"];
 
     const isValid = await form.trigger(requiredFields);
 
