@@ -14,6 +14,7 @@ async function checkEndpoint(endpoint) {
   console.log(`\n🔍 Testing: ${VERCEL_SITE}${endpoint}`);
   try {
     const start = Date.now();
+    console.log(`Checking: ${VERCEL_SITE}${endpoint}`);
     const response = await axios.get(`${VERCEL_SITE}${endpoint}`, {
       timeout: 15000,
       headers: {
