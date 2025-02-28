@@ -1,0 +1,72 @@
+[17:11:37.353] Running build in Washington, D.C., USA (East) – iad1
+[17:11:37.465] Cloning github.com/kartikeyas-x/jaasaidsshc (Branch: master, Commit: b575984)
+[17:11:37.704] Cloning completed: 238.000ms
+[17:11:40.295] Restored build cache from previous deployment (2myZPZUYWStf8RTfmYcXmeypctJw)
+[17:11:40.368] Running "vercel build"
+[17:11:40.736] Vercel CLI 41.2.2
+[17:11:41.474] Running "install" command: `npm install`...
+[17:11:43.897] 
+[17:11:43.898] up to date, audited 598 packages in 2s
+[17:11:43.898] 
+[17:11:43.898] 74 packages are looking for funding
+[17:11:43.898]   run `npm fund` for details
+[17:11:43.926] 
+[17:11:43.926] 10 vulnerabilities (8 moderate, 2 high)
+[17:11:43.926] 
+[17:11:43.926] To address issues that do not require attention, run:
+[17:11:43.926]   npm audit fix
+[17:11:43.927] 
+[17:11:43.927] To address all issues (including breaking changes), run:
+[17:11:43.927]   npm audit fix --force
+[17:11:43.927] 
+[17:11:43.927] Run `npm audit` for details.
+[17:11:44.175] 
+[17:11:44.175] > rest-express@1.0.0 build
+[17:11:44.175] > vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=cjs --outdir=dist
+[17:11:44.175] 
+[17:11:44.536] [36mvite v5.4.14 [32mbuilding for production...[36m[39m
+[17:11:44.587] transforming...
+[17:11:50.158] [32m✓[39m 2165 modules transformed.
+[17:11:50.547] rendering chunks...
+[17:11:50.556] computing gzip size...
+[17:11:50.576] [2m../dist/public/[22m[32mindex.html                 [39m[1m[2m  1.60 kB[22m[1m[22m[2m │ gzip:   0.63 kB[22m
+[17:11:50.577] [2m../dist/public/[22m[2massets/[22m[35mindex-CECowN2h.css  [39m[1m[2m 58.00 kB[22m[1m[22m[2m │ gzip:  10.14 kB[22m
+[17:11:50.584] [2m../dist/public/[22m[2massets/[22m[36mindex-BuSNb8PN.js   [39m[1m[33m562.29 kB[39m[22m[2m │ gzip: 176.54 kB[22m
+[17:11:50.585] [33m
+[17:11:50.585] (!) Some chunks are larger than 500 kB after minification. Consider:
+[17:11:50.585] - Using dynamic import() to code-split the application
+[17:11:50.585] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[17:11:50.585] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
+[17:11:50.586] [32m✓ built in 6.02s[39m
+[17:11:50.610] ▲ [WARNING] "import.meta" is not available with the "cjs" output format and will be empty [empty-import-meta]
+[17:11:50.610] 
+[17:11:50.610]     server/vite.ts:6:33:
+[17:11:50.611]       6 │ const __filename = fileURLToPath(import.meta.url);
+[17:11:50.611]         ╵                                  ~~~~~~~~~~~
+[17:11:50.611] 
+[17:11:50.611]   You need to set the output format to "esm" for "import.meta" to work correctly.
+[17:11:50.611] 
+[17:11:50.611] ▲ [WARNING] "import.meta" is not available with the "cjs" output format and will be empty [empty-import-meta]
+[17:11:50.611] 
+[17:11:50.612]     vite.config.ts:8:33:
+[17:11:50.612]       8 │ const __filename = fileURLToPath(import.meta.url);
+[17:11:50.612]         ╵                                  ~~~~~~~~~~~
+[17:11:50.612] 
+[17:11:50.612]   You need to set the output format to "esm" for "import.meta" to work correctly.
+[17:11:50.612] 
+[17:11:50.612] ✘ [ERROR] Top-level await is currently not supported with the "cjs" output format
+[17:11:50.612] 
+[17:11:50.612]     vite.config.ts:19:10:
+[17:11:50.612]       19 │           await import("@replit/vite-plugin-cartographer").then((m...
+[17:11:50.613]          ╵           ~~~~~
+[17:11:50.613] 
+[17:11:50.613] ✘ [ERROR] Expected ")" but found ";"
+[17:11:50.613] 
+[17:11:50.613]     server/storage.ts:10:66:
+[17:11:50.613]       10 │       const result = await db.execute(db.query(`SELECT 1 as test`);
+[17:11:50.613]          │                                                                   ^
+[17:11:50.613]          ╵                                                                   )
+[17:11:50.613] 
+[17:11:50.613] 2 warnings and 2 errors
+[17:11:50.625] Error: Command "npm run build" exited with 1
+[17:11:50.853] 
