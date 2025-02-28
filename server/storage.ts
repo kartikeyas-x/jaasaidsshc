@@ -1,7 +1,7 @@
 import { db } from "../db";
-import { activities } from "@shared/schema";
+import { activities } from "../shared/schema.js";
 import { eq } from "drizzle-orm";
-import type { InsertActivity, Activity } from "@shared/schema"; // Assuming Activity type is defined elsewhere
+import type { InsertActivity, Activity } from "../shared/schema.js"; // Assuming Activity type is defined elsewhere
 
 class Storage {
   async healthCheck() {
