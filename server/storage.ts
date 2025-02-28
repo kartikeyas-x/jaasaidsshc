@@ -16,7 +16,7 @@ class Storage {
           WHERE table_schema = 'public' 
           AND table_name = 'activities'
         );
-      `);
+      `));
 
       const tableExists = tableCheck[0]?.exists === true;
 
