@@ -1,0 +1,77 @@
+[15:58:19.157] Running build in Washington, D.C., USA (East) – iad1
+[15:58:20.083] Cloning github.com/kartikeyas-x/jaasaidsshc (Branch: master, Commit: 4de7dcf)
+[15:58:20.858] Cloning completed: 778.000ms
+[15:58:22.839] Restored build cache from previous deployment (7BXzkyQMtJJ3fGdHZjYvebEpvXfF)
+[15:58:22.915] Running "vercel build"
+[15:58:23.287] Vercel CLI 41.2.2
+[15:58:24.208] Running "install" command: `npm install`...
+[15:58:26.627] 
+[15:58:26.628] up to date, audited 598 packages in 2s
+[15:58:26.628] 
+[15:58:26.629] 74 packages are looking for funding
+[15:58:26.629]   run `npm fund` for details
+[15:58:26.658] 
+[15:58:26.659] 10 vulnerabilities (8 moderate, 2 high)
+[15:58:26.659] 
+[15:58:26.659] To address issues that do not require attention, run:
+[15:58:26.660]   npm audit fix
+[15:58:26.661] 
+[15:58:26.661] To address all issues (including breaking changes), run:
+[15:58:26.661]   npm audit fix --force
+[15:58:26.661] 
+[15:58:26.661] Run `npm audit` for details.
+[15:58:26.907] 
+[15:58:26.907] > rest-express@1.0.0 build
+[15:58:26.907] > vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=cjs --outdir=dist
+[15:58:26.907] 
+[15:58:27.311] [36mvite v5.4.14 [32mbuilding for production...[36m[39m
+[15:58:27.366] transforming...
+[15:58:33.342] [32m✓[39m 2165 modules transformed.
+[15:58:33.735] rendering chunks...
+[15:58:33.752] computing gzip size...
+[15:58:33.770] [2m../dist/public/[22m[32mindex.html                 [39m[1m[2m  1.60 kB[22m[1m[22m[2m │ gzip:   0.63 kB[22m
+[15:58:33.770] [2m../dist/public/[22m[2massets/[22m[35mindex-CECowN2h.css  [39m[1m[2m 58.00 kB[22m[1m[22m[2m │ gzip:  10.14 kB[22m
+[15:58:33.770] [2m../dist/public/[22m[2massets/[22m[36mindex-C8kN73Of.js   [39m[1m[33m562.27 kB[39m[22m[2m │ gzip: 176.54 kB[22m
+[15:58:33.771] [33m
+[15:58:33.771] (!) Some chunks are larger than 500 kB after minification. Consider:
+[15:58:33.771] - Using dynamic import() to code-split the application
+[15:58:33.771] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[15:58:33.771] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
+[15:58:33.774] [32m✓ built in 6.44s[39m
+[15:58:33.806] ▲ [WARNING] "import.meta" is not available with the "cjs" output format and will be empty [empty-import-meta]
+[15:58:33.807] 
+[15:58:33.807]     server/vite.ts:6:33:
+[15:58:33.807]       6 │ const __filename = fileURLToPath(import.meta.url);
+[15:58:33.807]         ╵                                  ~~~~~~~~~~~
+[15:58:33.807] 
+[15:58:33.808]   You need to set the output format to "esm" for "import.meta" to work correctly.
+[15:58:33.808] 
+[15:58:33.808] ▲ [WARNING] "import.meta" is not available with the "cjs" output format and will be empty [empty-import-meta]
+[15:58:33.809] 
+[15:58:33.809]     vite.config.ts:8:33:
+[15:58:33.809]       8 │ const __filename = fileURLToPath(import.meta.url);
+[15:58:33.809]         ╵                                  ~~~~~~~~~~~
+[15:58:33.810] 
+[15:58:33.810]   You need to set the output format to "esm" for "import.meta" to work correctly.
+[15:58:33.810] 
+[15:58:33.810] ✘ [ERROR] Top-level await is currently not supported with the "cjs" output format
+[15:58:33.810] 
+[15:58:33.810]     vite.config.ts:19:10:
+[15:58:33.810]       19 │           await import("@replit/vite-plugin-cartographer").then((m...
+[15:58:33.810]          ╵           ~~~~~
+[15:58:33.810] 
+[15:58:33.810] ✘ [ERROR] Cannot assign to "connectionString" because it is a constant
+[15:58:33.810] 
+[15:58:33.811]     db.ts:15:4:
+[15:58:33.811]       15 │     connectionString = "postgresql://neondb_owner:npg_iswFG0ZaHIY5...
+[15:58:33.811]          ╵     ~~~~~~~~~~~~~~~~
+[15:58:33.811] 
+[15:58:33.811]   The symbol "connectionString" was declared a constant here:
+[15:58:33.811] 
+[15:58:33.811]     db.ts:12:8:
+[15:58:33.811]       12 │   const connectionString = process.env.DATABASE_URL;
+[15:58:33.811]          ╵         ~~~~~~~~~~~~~~~~
+[15:58:33.811] 
+[15:58:33.811] 2 warnings and 2 errors
+[15:58:33.821] Error: Command "npm run build" exited with 1
+[15:58:34.085] 
