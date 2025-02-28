@@ -6,11 +6,14 @@ export const config = {
 export default async function handler(request) {
   return new Response(
     JSON.stringify({
-      message: "pong",
+      message: "Database configuration debug info",
       timestamp: new Date().toISOString(),
       environment: process.env.NODE_ENV || 'development',
-      deployment: 'vercel',
-      version: '1.0.1'
+      database: {
+        status: "checking configuration",
+        has_connection_string: process.env.DATABASE_URL ? true : false,
+        connection_string_length: process.env.DATABASE_URL ? process.env.DATABASE_URL.length : 0
+      }
     }),
     {
       status: 200,
