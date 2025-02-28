@@ -15,10 +15,11 @@ async function checkEndpoint(endpoint) {
   try {
     const start = Date.now();
     const response = await axios.get(`${VERCEL_SITE}${endpoint}`, {
-      timeout: 10000,
+      timeout: 15000,
       headers: {
         'Accept': 'application/json',
-        'Cache-Control': 'no-cache'
+        'Cache-Control': 'no-cache',
+        'User-Agent': 'VercelDeploymentChecker/1.0'
       }
     });
     const duration = Date.now() - start;
@@ -47,12 +48,19 @@ async function main() {
   for (const endpoint of endpoints) {
     const success = await checkEndpoint(endpoint);
     allSuccess = allSuccess && success;
+    
+    // Add a delay between requests
+    await new Promise(resolve => setTimeout(resolve, 1000));
   }
   
   if (allSuccess) {
     console.log('\n✅ All endpoints tested successfully!');
   } else {
     console.log('\n❌ Some endpoints failed. Please check the errors above.');
+    console.log('\nPossible solutions:');
+    console.log('1. Check if you need to add environment variables in Vercel dashboard');
+    console.log('2. Wait a few minutes for deployment to fully propagate');
+    console.log('3. Try redeploying the project');
   }
 }
 

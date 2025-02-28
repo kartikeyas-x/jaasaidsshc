@@ -5,8 +5,14 @@
   "outputDirectory": "dist/public",
   "framework": "vite",
   "regions": ["iad1"],
+  "functions": {
+    "vercel/api/*.js": {
+      "memory": 1024,
+      "maxDuration": 10
+    }
+  },
   "rewrites": [
-    { "source": "/api/:path*", "destination": "/api/:path*" },
+    { "source": "/api/:path*", "destination": "/vercel/api/:path*" },
     { "source": "/(.*)", "destination": "/index.html" }
   ],
   "headers": [

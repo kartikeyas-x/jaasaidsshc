@@ -1,11 +1,11 @@
 
-// Using Node.js runtime instead of Edge Runtime for better compatibility
 export default function handler(req, res) {
   res.status(200).json({
-    message: "pong",
+    status: "healthy",
     timestamp: new Date().toISOString(),
     environment: process.env.NODE_ENV || 'development',
-    deployment: 'vercel',
-    version: '1.0.2'
+    vercel: true,
+    region: process.env.VERCEL_REGION || "unknown",
+    nodeVersion: process.version
   });
 }
