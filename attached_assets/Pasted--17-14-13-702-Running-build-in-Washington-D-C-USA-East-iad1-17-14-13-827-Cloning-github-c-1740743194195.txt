@@ -1,0 +1,84 @@
+[17:14:13.702] Running build in Washington, D.C., USA (East) – iad1
+[17:14:13.827] Cloning github.com/kartikeyas-x/jaasaidsshc (Branch: master, Commit: 413abae)
+[17:14:14.111] Cloning completed: 284.000ms
+[17:14:16.369] Restored build cache from previous deployment (2myZPZUYWStf8RTfmYcXmeypctJw)
+[17:14:16.451] Running "vercel build"
+[17:14:16.832] Vercel CLI 41.2.2
+[17:14:18.042] Running "install" command: `npm install`...
+[17:14:20.921] 
+[17:14:20.922] up to date, audited 598 packages in 3s
+[17:14:20.922] 
+[17:14:20.923] 74 packages are looking for funding
+[17:14:20.923]   run `npm fund` for details
+[17:14:20.952] 
+[17:14:20.954] 10 vulnerabilities (8 moderate, 2 high)
+[17:14:20.954] 
+[17:14:20.954] To address issues that do not require attention, run:
+[17:14:20.954]   npm audit fix
+[17:14:20.954] 
+[17:14:20.954] To address all issues (including breaking changes), run:
+[17:14:20.954]   npm audit fix --force
+[17:14:20.955] 
+[17:14:20.955] Run `npm audit` for details.
+[17:14:21.455] 
+[17:14:21.456] > rest-express@1.0.0 build
+[17:14:21.456] > vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist
+[17:14:21.456] 
+[17:14:21.867] [36mvite v5.4.14 [32mbuilding for production...[36m[39m
+[17:14:21.923] transforming...
+[17:14:27.601] [32m✓[39m 2165 modules transformed.
+[17:14:28.042] rendering chunks...
+[17:14:28.057] computing gzip size...
+[17:14:28.076] [2m../dist/public/[22m[32mindex.html                 [39m[1m[2m  1.60 kB[22m[1m[22m[2m │ gzip:   0.63 kB[22m
+[17:14:28.077] [2m../dist/public/[22m[2massets/[22m[35mindex-CECowN2h.css  [39m[1m[2m 58.00 kB[22m[1m[22m[2m │ gzip:  10.14 kB[22m
+[17:14:28.083] [2m../dist/public/[22m[2massets/[22m[36mindex-BuSNb8PN.js   [39m[1m[33m562.29 kB[39m[22m[2m │ gzip: 176.54 kB[22m
+[17:14:28.083] [32m✓ built in 6.19s[39m
+[17:14:28.083] [33m
+[17:14:28.084] (!) Some chunks are larger than 500 kB after minification. Consider:
+[17:14:28.084] - Using dynamic import() to code-split the application
+[17:14:28.084] - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[17:14:28.084] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
+[17:14:28.118] 
+[17:14:28.118]   dist/index.js  15.5kb
+[17:14:28.118] 
+[17:14:28.118] ⚡ Done in 5ms
+[17:14:28.148] Installing dependencies...
+[17:14:29.165] 
+[17:14:29.165] up to date in 955ms
+[17:14:29.166] 
+[17:14:29.166] 74 packages are looking for funding
+[17:14:29.166]   run `npm fund` for details
+[17:14:29.400] Using TypeScript 5.6.3 (local user-provided)
+[17:14:34.596] db.ts(22,5): error TS2353: Object literal may only specify known properties, and 'pooling' does not exist in type 'HTTPTransactionOptions<false, false>'.
+[17:14:34.596] 
+[17:14:36.344] Using TypeScript 5.6.3 (local user-provided)
+[17:14:37.996] server/vite.ts(42,5): error TS2322: Type '{ middlewareMode: boolean; hmr: { server: Server<typeof IncomingMessage, typeof ServerResponse>; }; allowedHosts: string; }' is not assignable to type 'ServerOptions'.
+[17:14:37.997]   Types of property 'allowedHosts' are incompatible.
+[17:14:37.997]     Type 'string' is not assignable to type 'true | string[] | undefined'.
+[17:14:37.997] 
+[17:14:38.091] server/storage.ts(10,42): error TS2349: This expression is not callable.
+[17:14:38.092]   Type '{ readonly activities: RelationalQueryBuilder<ExtractTablesWithRelations<typeof import("/vercel/path0/shared/schema")>, { tsName: "activities"; dbName: "activities"; columns: { id: PgColumn<{ name: "id"; ... 13 more ...; generated: undefined; }, {}, {}>; ... 13 more ...; contact_name: PgColumn<...>; }; relations: ne...' has no call signatures.
+[17:14:38.092] server/storage.ts(13,46): error TS2349: This expression is not callable.
+[17:14:38.092]   Type '{ readonly activities: RelationalQueryBuilder<ExtractTablesWithRelations<typeof import("/vercel/path0/shared/schema")>, { tsName: "activities"; dbName: "activities"; columns: { id: PgColumn<{ name: "id"; ... 13 more ...; generated: undefined; }, {}, {}>; ... 13 more ...; contact_name: PgColumn<...>; }; relations: ne...' has no call signatures.
+[17:14:38.092] server/storage.ts(21,27): error TS7053: Element implicitly has an 'any' type because expression of type '0' can't be used to index type 'NeonHttpQueryResult<Record<string, unknown>>'.
+[17:14:38.093]   Property '0' does not exist on type 'NeonHttpQueryResult<Record<string, unknown>>'.
+[17:14:38.093] server/storage.ts(38,16): error TS18046: 'error' is of type 'unknown'.
+[17:14:38.093] server/storage.ts(63,7): error TS2322: Type '{ id: number; name: string; category: string; description: string | null; activity_type: string | null; location_type: string | null; min_members: number | null; max_members: number | null; ... 6 more ...; contact_name: string | null; }' is not assignable to type '{ id: number; name: string; category: string; min_members: number; max_members: number; description?: string | undefined; activity_type?: string | undefined; location_type?: string | undefined; ... 6 more ...; contact_name?: string | undefined; }'.
+[17:14:38.095]   Types of property 'min_members' are incompatible.
+[17:14:38.095]     Type 'number | null' is not assignable to type 'number'.
+[17:14:38.095]       Type 'null' is not assignable to type 'number'.
+[17:14:38.095] server/storage.ts(98,31): error TS2349: This expression is not callable.
+[17:14:38.096]   Type '{ readonly activities: RelationalQueryBuilder<ExtractTablesWithRelations<typeof import("/vercel/path0/shared/schema")>, { tsName: "activities"; dbName: "activities"; columns: { id: PgColumn<{ name: "id"; ... 13 more ...; generated: undefined; }, {}, {}>; ... 13 more ...; contact_name: PgColumn<...>; }; relations: ne...' has no call signatures.
+[17:14:38.096] server/storage.ts(111,31): error TS2349: This expression is not callable.
+[17:14:38.096]   Type '{ readonly activities: RelationalQueryBuilder<ExtractTablesWithRelations<typeof import("/vercel/path0/shared/schema")>, { tsName: "activities"; dbName: "activities"; columns: { id: PgColumn<{ name: "id"; ... 13 more ...; generated: undefined; }, {}, {}>; ... 13 more ...; contact_name: PgColumn<...>; }; relations: ne...' has no call signatures.
+[17:14:38.096] 
+[17:14:45.463] client/src/components/create-activity/activity-details.tsx(29,40): error TS2345: Argument of type 'string[]' is not assignable to parameter of type '"name" | "category" | "description" | "activity_type" | "location_type" | "min_members" | "max_members" | "address_line_1" | "address_line_2" | "zip_code" | "city" | "state" | ... 4 more ... | undefined'.
+[17:14:45.464]   Type 'string[]' is not assignable to type '("name" | "category" | "description" | "activity_type" | "location_type" | "min_members" | "max_members" | "address_line_1" | "address_line_2" | "zip_code" | "city" | "state" | "contact_number" | "contact_name")[]'.
+[17:14:45.464]     Type 'string' is not assignable to type '"name" | "category" | "description" | "activity_type" | "location_type" | "min_members" | "max_members" | "address_line_1" | "address_line_2" | "zip_code" | "city" | "state" | "contact_number" | "contact_name"'.
+[17:14:45.464] 
+[17:14:54.151] Build Completed in /vercel/output [36s]
+[17:14:54.615] Deploying outputs...
+[17:15:05.139] 
+[17:15:05.462] Deployment completed
+[17:15:41.878] Uploading build cache [62.04 MB]...
+[17:15:42.835] Build cache uploaded: 956.339ms
