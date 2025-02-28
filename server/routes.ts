@@ -8,29 +8,29 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.post("/api/activities", async (req, res) => {
     try {
       const activity = insertActivitySchema.parse(req.body);
-      
+
       // Log the activity for debugging
       console.log("Attempting to create activity:", JSON.stringify(activity));
-      
+
       // Check if storage module is available
       if (!storage || typeof storage.createActivity !== 'function') {
         throw new Error("Storage module or createActivity function is not properly defined");
       }
-      
+
       const created = await storage.createActivity(activity);
       res.status(201).json(created);
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error in POST /api/activities:", error);
-      
+
       if (error.name === "ZodError") {
         return res.status(400).json({ error: "Invalid activity data", details: error.errors });
       }
-      
+
       // More detailed error response
       res.status(500).json({ 
         error: "Server error while creating activity",
-        message: process.env.NODE_ENV === 'production' ? undefined : error.message,
-        stack: process.env.NODE_ENV === 'production' ? undefined : error.stack
+        message: process.env.NODE_ENV === 'production' ? undefined : error?.message,
+        stack: process.env.NODE_ENV === 'production' ? undefined : error?.stack
       });
     }
   });
@@ -39,9 +39,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const activities = await storage.getAllActivities();
       res.json(activities);
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error in GET /api/activities:", error);
-      res.status(500).json({ error: "Error retrieving activities" });
+      res.status(500).json({ error: "Error retrieving activities", details: process.env.NODE_ENV === 'production' ? null : error?.message });
     }
   });
 
@@ -53,9 +53,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return;
       }
       res.json(activity);
-    } catch (error) {
+    } catch (error: any) {
       console.error(`Error in GET /api/activities/${req.params.id}:`, error);
-      res.status(500).json({ error: "Error retrieving activity" });
+      res.status(500).json({ error: "Error retrieving activity", details: process.env.NODE_ENV === 'production' ? null : error?.message });
     }
   });
 
@@ -64,7 +64,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       // Use dedicated health check method
       const dbStatus = await storage.healthCheck();
-      
+
       // Return detailed environment info for debugging
       res.json({
         status: dbStatus.status === "healthy" ? "healthy" : "unhealthy",
@@ -76,17 +76,17 @@ export async function registerRoutes(app: Express): Promise<Server> {
         timestamp: new Date().toISOString(),
         memoryUsage: process.memoryUsage()
       });
-    } catch (error) {
+    } catch (error: any) {
       console.error("Healthcheck failed:", error);
       res.status(500).json({
         status: "unhealthy",
-        error: error.message,
-        stack: process.env.NODE_ENV === "production" ? "hidden" : error.stack,
+        error: error?.message,
+        stack: process.env.NODE_ENV === "production" ? "hidden" : error?.stack,
         timestamp: new Date().toISOString()
       });
     }
   });
-  
+
   // Add a simple echo route to test basic functionality
   app.get("/api/echo", (req, res) => {
     res.json({

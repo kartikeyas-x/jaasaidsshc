@@ -56,13 +56,13 @@ class Storage {
         city: activity.city || "Default City", // Default for the not-null constraint
         state: activity.state || "Default State", // Default for the not-null constraint
       };
-      
+
       console.log("Creating activity with defaults:", JSON.stringify(activityWithDefaults));
-      
+
       const result = await db.insert(activities).values(activityWithDefaults).returning();
       return result[0];
-    } catch (error) {
-      console.error("Failed to create activity:", error);
+    } catch (error: any) {
+      console.error("Failed to create activity:", error?.message || error);
 
       // Check if this is a "relation does not exist" error
       if (error.code === '42P01') {
@@ -77,8 +77,8 @@ class Storage {
   async getAllActivities() {
     try {
       return await db.select().from(activities);
-    } catch (error) {
-      console.error("Failed to get all activities:", error);
+    } catch (error: any) {
+      console.error("Failed to get all activities:", error?.message || error);
       throw new Error(`Database error: ${error.message}`);
     }
   }
@@ -87,11 +87,48 @@ class Storage {
     try {
       const result = await db.select().from(activities).where(eq(activities.id, id)).limit(1);
       return result[0] || null;
-    } catch (error) {
-      console.error(`Failed to get activity with id ${id}:`, error);
+    } catch (error: any) {
+      console.error(`Failed to get activity with id ${id}:`, error?.message || error);
       throw new Error(`Database error: ${error.message}`);
     }
   }
+
+  async countActivities() {
+    try {
+      const result = await db.query(`
+        SELECT COUNT(*) as count FROM activities
+      `);
+      const rows = result as any[];
+      return Number(rows[0]?.count ?? 0);
+    } catch (error: any) {
+      console.error('Error counting activities:', error?.message || error);
+      throw new Error(`Database error: ${error.message}`);
+    }
+  }
+
+  async listCategories() {
+    try {
+      const result = await db.query(`
+        SELECT DISTINCT category FROM activities
+      `);
+      return (result as any[]).map((row) => row.category);
+    } catch (error: any) {
+      console.error('Error fetching categories:', error?.message || error);
+      throw new Error(`Database error: ${error.message}`);
+    }
+  }
+
+  async getActivitiesByCategory(category: string) {
+    try {
+      const result = await db.select().from(activities).where(eq(activities.category, category));
+      return result;
+    } catch (error: any) {
+      console.error(`Error fetching activities for category ${category}:`, error?.message || error);
+      throw new Error(`Database error: ${error.message}`);
+    }
+  }
+
+
 }
 
 export const storage = new Storage();
