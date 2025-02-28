@@ -7,7 +7,7 @@ class Storage {
   async healthCheck() {
     try {
       // Test basic connection
-      const result = await db.execute(db.query(`SELECT 1 as test`);
+      const result = await db.execute(db.query(`SELECT 1 as test`));
 
       // Check if activities table exists
       const tableCheck = await db.execute(db.query(`

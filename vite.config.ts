@@ -16,10 +16,17 @@ export default defineConfig({
     ...(process.env.NODE_ENV !== "production" &&
     process.env.REPL_ID !== undefined
       ? [
-          await import("@replit/vite-plugin-cartographer").then((m) =>
-            m.cartographer(),
-          ),
-        ]
+          // Use a function to dynamically import instead of top-level await
+          (() => {
+            try {
+              const cartographer = require("@replit/vite-plugin-cartographer").cartographer;
+              return cartographer();
+            } catch (e) {
+              console.warn("Cartographer plugin not available:", e);
+              return null;
+            }
+          })(),
+        ].filter(Boolean)
       : []),
   ],
   resolve: {
