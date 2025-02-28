@@ -1,0 +1,55 @@
+[17:10:09.580] Running build in Washington, D.C., USA (East) – iad1
+[17:10:10.028] Cloning github.com/kartikeyas-x/jaasaidsshc (Branch: master, Commit: c254623)
+[17:10:10.284] Cloning completed: 255.000ms
+[17:10:12.442] Restored build cache from previous deployment (2myZPZUYWStf8RTfmYcXmeypctJw)
+[17:10:12.541] Running "vercel build"
+[17:10:12.917] Vercel CLI 41.2.2
+[17:10:14.614] Running "install" command: `npm install`...
+[17:10:17.120] 
+[17:10:17.121] up to date, audited 598 packages in 2s
+[17:10:17.121] 
+[17:10:17.121] 74 packages are looking for funding
+[17:10:17.122]   run `npm fund` for details
+[17:10:17.148] 
+[17:10:17.149] 10 vulnerabilities (8 moderate, 2 high)
+[17:10:17.149] 
+[17:10:17.149] To address issues that do not require attention, run:
+[17:10:17.149]   npm audit fix
+[17:10:17.149] 
+[17:10:17.149] To address all issues (including breaking changes), run:
+[17:10:17.149]   npm audit fix --force
+[17:10:17.149] 
+[17:10:17.149] Run `npm audit` for details.
+[17:10:17.426] 
+[17:10:17.426] > rest-express@1.0.0 build
+[17:10:17.427] > vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=cjs --outdir=dist
+[17:10:17.427] 
+[17:10:17.810] [36mvite v5.4.14 [32mbuilding for production...[36m[39m
+[17:10:17.865] transforming...
+[17:10:19.503] [32m✓[39m 39 modules transformed.
+[17:10:19.505] [31mx[39m Build failed in 1.67s
+[17:10:19.505] [31merror during build:
+[17:10:19.506] [31m[vite:esbuild] Transform failed with 1 error:
+[17:10:19.506] /vercel/path0/client/src/components/create-activity/location-details.tsx:147:87: ERROR: Unexpected "."[31m
+[17:10:19.507] file: [36m/vercel/path0/client/src/components/create-activity/location-details.tsx:147:87[31m
+[17:10:19.507] [33m
+[17:10:19.507] [33mUnexpected "."[33m
+[17:10:19.507] 145|                    <div className="flex gap-2">
+[17:10:19.507] 146|                      <Select 
+[17:10:19.507] 147|                        onValueChange={(value) => field.onChange(`${value}${field.value??.toString().replace(/^\+\d+/, '')}`)}
+[17:10:19.507]    |                                                                                         ^
+[17:10:19.507] 148|                        defaultValue="+1"
+[17:10:19.507] 149|                      >
+[17:10:19.507] [31m
+[17:10:19.507]     at failureErrorWithLog (/vercel/path0/node_modules/vite/node_modules/esbuild/lib/main.js:1472:15)
+[17:10:19.507]     at /vercel/path0/node_modules/vite/node_modules/esbuild/lib/main.js:755:50
+[17:10:19.508]     at responseCallbacks.<computed> (/vercel/path0/node_modules/vite/node_modules/esbuild/lib/main.js:622:9)
+[17:10:19.508]     at handleIncomingPacket (/vercel/path0/node_modules/vite/node_modules/esbuild/lib/main.js:677:12)
+[17:10:19.508]     at Socket.readFromStdout (/vercel/path0/node_modules/vite/node_modules/esbuild/lib/main.js:600:7)
+[17:10:19.508]     at Socket.emit (node:events:518:28)
+[17:10:19.508]     at addChunk (node:internal/streams/readable:561:12)
+[17:10:19.508]     at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+[17:10:19.508]     at Readable.push (node:internal/streams/readable:392:5)
+[17:10:19.508]     at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)[39m
+[17:10:19.544] Error: Command "npm run build" exited with 1
+[17:10:19.856] 
